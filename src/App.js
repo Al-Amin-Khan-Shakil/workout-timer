@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ToggleSounds from './components/ToggleSounds';
 import './App.css';
 
 function formatTime(date) {
@@ -13,6 +14,7 @@ function formatTime(date) {
 
 function App() {
   const [time, setTime] = useState(formatTime(new Date()));
+  const [allowSound, setAllowSound] = useState(true);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -30,6 +32,7 @@ function App() {
         {' '}
         {time}
       </time>
+      <ToggleSounds allowSound={allowSound} setAllowSound={setAllowSound} />
     </main>
   );
 }
